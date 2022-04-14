@@ -1,48 +1,49 @@
 package com.bridgelabz.EmployeeWage;
 
+
 public class EmployeeWageComputation {
 
     private static final int IS_FULL_TIME = 1;
     private static final int IS_PART_TIME = 2;
-    private static final int EMP_WAGE_PER_HOUR = 20;
-    private static final int WORKING_DAYS_PER_MONTH = 20;
-    private static final int TOTAL_WORKING_HOURS = 100;
 
+    public static int calculateEmpWageForCompany(String company, int empRate, int numOFDays, int maxHours) {
 
-    public static void main(String[] args) {
-
-
-        int empHrs=0, empWagePerMonth = 0, totalWorkingDays=0, totalEmpHours = 0;
         System.out.println("----- Welcome to Employee Wage Computation! -----");
+        int empHrs=0, empWagePerMonth = 0, totalWorkingdays=0, totalEmpHours = 0;
 
-        while(totalEmpHours <= TOTAL_WORKING_HOURS && totalWorkingDays < WORKING_DAYS_PER_MONTH) {
+        while(totalEmpHours <= maxHours && totalWorkingdays < numOFDays) {
 
-            totalWorkingDays ++;
+            totalWorkingdays ++;
             int empType = (int)Math.floor(Math.random() * 10) % 3;
 
-            switch (empType) {
-                case IS_FULL_TIME -> {
-                    System.out.println("Employee is Doing Full Time:");
+            switch(empType) {
+                case IS_FULL_TIME:
+                    System.out.println("Employee Doing Full Time:");
                     empHrs = 8;
-                }
-                case IS_PART_TIME -> {
-                    System.out.println("Employee is Doing Part Time:");
+                    break;
+                case IS_PART_TIME:
+                    System.out.println("Employee Doing Part Time:");
                     empHrs = 4;
-                }
-                default -> {
+                    break;
+                default:
                     System.out.println("Employee is Absent:");
                     empHrs = 0;
-                }
             }
 
             totalEmpHours += empHrs;
-            int empWagePerDay = empHrs * EMP_WAGE_PER_HOUR;
+            int empWagePerDay = empHrs * empRate;
             empWagePerMonth += empWagePerDay;
-
             System.out.println("Emp Wage Per Day : "+empWagePerDay);
         }
 
-        System.out.println("Emp Wage Per Month : "+empWagePerMonth);
+        System.out.println("Emp Wage Per Month for Company: "+company+" is : "+empWagePerMonth);
+        return empWagePerMonth;
+    }
+
+    public static void main(String[] args) {
+        calculateEmpWageForCompany("Firoz", 20, 2, 10);
+        calculateEmpWageForCompany("Shaik", 10, 4, 20);
+
     }
 
 }
