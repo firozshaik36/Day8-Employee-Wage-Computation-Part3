@@ -2,8 +2,9 @@ package com.bridgelabz.EmployeeWage;
 
 public class EmployeeWageComputation {
 
-    private static final int IS_FULL_TIME = 1;
-    private static final int IS_PART_TIME = 2;
+
+    private static final int IS_FULL_TIME = 1;   // Initializing Variable
+    private static final int IS_PART_TIME = 2;   // Initializing Variable
 
     private final String company;
     private final int empRate;
@@ -57,15 +58,15 @@ public class EmployeeWageComputation {
     public static void main(String[] args) {
 
         System.out.println("----- Welcome to Employee Wage Computation Program! -----");
-        EmployeeWageComputation bridgelabz = new EmployeeWageComputation("FIROZ", 20, 2, 10);
-        EmployeeWageComputation dMart = new EmployeeWageComputation("SHAIK", 40, 5, 20);
+        EmployeeWageComputation firoz = new EmployeeWageComputation("FIROZ", 20, 2, 10);
+        EmployeeWageComputation shaik = new EmployeeWageComputation("SHAIK", 40, 5, 20);
 
-        bridgelabz.calculateEmpWageForCompany();
-        System.out.println(bridgelabz);
+        firoz.calculateEmpWageForCompany();
+        System.out.println(firoz);
         System.out.println();
 
-        dMart.calculateEmpWageForCompany();
-        System.out.println(dMart);
+        shaik.calculateEmpWageForCompany();
+        System.out.println(shaik);
 
     }
 
